@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Sales Report - Yum Yard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🍽️ Yum Yard</h1>
+        <nav>
+            <a href="index.html">Menu</a>
+            <a href="manage-menu.html">Manage Menu</a>
+            <a href="sales-report.html">Sales Report</a>
+        </nav>
+    </header>
+
+    <main class="sales-report-container">
+        <h2>Monthly Sales Report</h2>
+        
+        <div class="filter-section">
+            <label for="monthSelect">Select Month:</label>
+            <input type="month" id="monthSelect" value="">
+            <button class="btn btn-primary" onclick="generateReport()">Generate Report</button>
+        </div>
+
+        <div id="reportContent" class="report-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p class="stat-value" id="totalRevenue">₹0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p class="stat-value" id="totalOrders">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Order Value</h3>
+                    <p class="stat-value" id="avgOrderValue">₹0</p>
+                </div>
+            </div>
+
+            <div class="report-section">
+                <h3>Daily Breakdown</h3>
+                <div id="dailyBreakdown" class="daily-breakdown">
+                    <!-- Daily breakdown will be populated here -->
+                </div>
+            </div>
+
+            <div class="report-section">
+                <h3>Top Selling Items</h3>
+                <div id="topItems" class="top-items">
+                    <!-- Top items will be populated here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/sales.js"></script>
+    <script>
+        // Set default month to current month
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            const month = (now.getFullYear()) + '-' + String(now.getMonth() + 1).padStart(2, '0');
+            document.getElementById('monthSelect').value = month;
+            generateReport();
+        });
+    </script>
+</body>
+</html>
