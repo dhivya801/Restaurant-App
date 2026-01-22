@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Yum Yard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🍽️ Yum Yard</h1>
+        <nav>
+            <a href="index.html">Menu</a>
+            <a href="manage-menu.html">Manage Menu</a>
+            <a href="sales-report.html">Sales Report</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="menu-container">
+            <h2>Our Menu</h2>
+            <div id="menu-grid" class="menu-grid">
+                <!-- Menu items will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <div class="cart-container" id="cartContainer">
+            <div class="cart-header">
+                <h2>Cart</h2>
+                <button class="close-cart" id="closeCart">×</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">₹0</span>
+                </div>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-primary" id="payNowBtn">Pay Now</button>
+                <button class="btn btn-secondary" id="printBillBtn">Print Bill</button>
+                <button class="btn btn-danger" id="clearCartBtn">Clear Cart</button>
+            </div>
+        </div>
+
+        <button class="cart-toggle" id="cartToggle">
+            <span id="cartCount">0</span> 🛒
+        </button>
+    </main>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Payment QR Code</h2>
+            <div id="qrCode"></div>
+            <p id="qrInfo"></p>
+            <button class="btn btn-primary" onclick="closeQRModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Bill Print Section (hidden, only for printing) -->
+    <div id="billPrint" class="bill-print">
+        <div class="bill-header">
+            <h1>Yum Yard Bill</h1>
+            <p>Order #<span id="printOrderNumber"></span></p>
+            <p id="printDateTime"></p>
+        </div>
+        <div class="bill-items" id="printItems">
+            <!-- Items will be populated here -->
+        </div>
+        <div class="bill-summary">
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="printTotal"></span>
+            </div>
+        </div>
+        <div class="bill-footer">
+            <p>Thank you for your visit!</p>
+        </div>
+    </div>
+
+    <script src="js/menu.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
